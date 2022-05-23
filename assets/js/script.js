@@ -2,7 +2,7 @@ var questions = [
     {
         prompt: "True or False? JAVASCRIPT is the same as JAVA?",
 
-        answer: "true"
+        answer: "false"
     },
     {
         prompt: "What will be the result of this function in the DevTools Console? \nfunction a() { var x = 2 + 8;\n console.log(x);\n };\n a();\nA. 2\nB. 8\nC. 10\nD. undefined",
@@ -17,21 +17,30 @@ var questions = [
     },
 ];
 
+var pageContentEl = document.querySelector("#page-content");
+
 var score = 0;
 
-for (var i = 0; i < questions.length; i++) {
+function startQuiz() {
 
-    var response = window.prompt(questions[i].prompt);
+    for (var i = 0; i < questions.length; i++) {
 
-    if (response == questions[i].answer) {
+        var response = window.prompt(questions[i].prompt);
+    
+        if (response == questions[i].answer) {
+    
+            score ++;
+    
+            alert("Correct!!");
+    
+        } else {
+            alert("Wrong!!");
+        }
+    };
 
-        score ++;
-
-        alert("Correct!!");
-
-    } else {
-        alert("Wrong!!");
-    }
+    alert("You got " + score + "/" + questions.length);
+    
 };
 
-alert("You got " + score + "/" + questions.length);
+pageContentEl.addEventListener("click", startQuiz);
+
