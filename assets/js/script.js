@@ -72,7 +72,11 @@ function startQuiz() {
             alert("Correct!!");
     
         } else {
+            
             alert("Wrong!!");
+
+            time = time - 10;
+
         }
     };
 
